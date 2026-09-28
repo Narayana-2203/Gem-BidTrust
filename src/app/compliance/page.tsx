@@ -87,18 +87,18 @@ export default function CompliancePage() {
           </div>
           <div className="kpi-card kpi-blue animate-in stagger-2">
             <div className="kpi-label">Total Checks Run</div>
-            <div className="kpi-value">16,981</div>
-            <div className="kpi-sub">Across 3,842 bids</div>
+            <div className="kpi-value">842</div>
+            <div className="kpi-sub">Across 142 bids</div>
             <div className="kpi-icon" style={{ color: 'var(--info)' }}>
               <FileSearch size={38} />
             </div>
           </div>
           <div className="kpi-card kpi-amber animate-in stagger-3">
             <div className="kpi-label">Flags Raised</div>
-            <div className="kpi-value">348</div>
+            <div className="kpi-value">42</div>
             <div className="kpi-sub">
               <TrendingUp size={13} />
-              <span className="up">Accuracy: 94.2%</span>
+              <span className="up">Compliance: 70.4%</span>
             </div>
             <div className="kpi-icon" style={{ color: 'var(--warning)' }}>
               <ShieldAlert size={38} />
