@@ -385,7 +385,7 @@ export default function DashboardPage() {
                     )}
                   />
                   <Tooltip
-                    formatter={(value: any) => [`${value}%`, 'Proportion']}
+                    formatter={(value: any, name: any, props: any) => [`${value}%`, props.payload.name]}
                     contentStyle={{
                       background: '#fff',
                       border: '1px solid #e7e5e0',
