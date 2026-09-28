@@ -48,7 +48,7 @@ function TendersContent() {
 
   // Prototype Pagination Logic (Illusion of Scale)
   const ITEMS_PER_PAGE = 10;
-  const totalFakeCount = filtered.length > 0 ? (filtered.length * 384) + 2 : 0;
+  const totalFakeCount = filtered.length > 0 ? 384 : 0;
   const totalPages = Math.ceil(totalFakeCount / ITEMS_PER_PAGE);
   
   // Change the order slightly on different pages so it looks like new data
@@ -197,8 +197,8 @@ function TendersContent() {
         {/* Results Count */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
           <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>
-            Showing <strong style={{ color: 'var(--text-primary)' }}>1 – {filtered.length}</strong> of{' '}
-            <strong style={{ color: 'var(--text-primary)' }}>384</strong> tenders
+            Showing <strong style={{ color: 'var(--text-primary)' }}>{totalFakeCount > 0 ? startIndex : 0} – {endIndex}</strong> of{' '}
+            <strong style={{ color: 'var(--text-primary)' }}>{totalFakeCount}</strong> tenders
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>Sort by</span>
