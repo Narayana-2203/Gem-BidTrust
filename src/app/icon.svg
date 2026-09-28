@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <!-- Dark Slate Navy Squircle Base -->
+  <rect width="32" height="32" rx="7" fill="#0A1628"/>
+  
+  <!-- Classic Institutional Trust Shield -->
+  <path d="M16 5 C12 5.4 6.5 6.5 6.5 6.5 V14.5 C6.5 21 11.5 25.5 16 27.5 C20.5 25.5 25.5 21 25.5 14.5 V6.5 C25.5 6.5 20 5.4 16 5 Z" 
+        fill="#2563EB"/>
+        
+  <!-- Compliance Verification Checkmark -->
+  <path d="M11.4 14.8 L14.6 18.0 L21.0 11.2" 
+        stroke="#FFFFFF" 
+        stroke-width="2.6" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+</svg>
