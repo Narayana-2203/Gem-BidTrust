@@ -119,7 +119,7 @@ export default function RiskPage() {
                     {riskDistribution.map((entry: any, index: number) => (<Cell key={index} fill={entry.color} />))}
                   </Pie>
                   <Legend verticalAlign="bottom" formatter={(value: string) => <span style={{ color: '#525252', fontSize: 12, fontWeight: 500 }}>{value}</span>} />
-                  <Tooltip formatter={(value: any) => [`${value}%`, 'Share']} contentStyle={{ background: '#fff', border: '1px solid #e7e5e0', borderRadius: 8, fontSize: 12 }} />
+                  <Tooltip formatter={(value: any, name: any, props: any) => [`${value}%`, props.payload.name]} contentStyle={{ background: '#fff', border: '1px solid #e7e5e0', borderRadius: 8, fontSize: 12 }} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
