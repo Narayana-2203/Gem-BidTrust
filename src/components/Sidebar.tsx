@@ -29,6 +29,7 @@ const navSections = [
     label: 'Procurement',
     items: [
       { href: '/tenders', label: 'Tender Explorer', icon: Search },
+      { href: '/decisions', label: 'Reviewed Bids', icon: Users },
       { href: '/import', label: 'Import Tender Data', icon: CloudDownload },
     ],
   },
