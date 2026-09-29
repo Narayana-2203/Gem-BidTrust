@@ -1,4 +1,5 @@
 'use client';
+import { useRouter } from 'next/navigation';
 
 import TopBar from '@/components/TopBar';
 import { api } from '@/services/api';
@@ -63,6 +64,7 @@ const statusConfig = {
 };
 
 export default function EvaluateBidderPage({ params }: { params: Promise<{ bidderId: string }> }) {
+  const router = useRouter();
   const { bidderId } = use(params);
   const [bidder, setBidder] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -136,7 +138,8 @@ export default function EvaluateBidderPage({ params }: { params: Promise<{ bidde
     setShowToast(true);
     setTimeout(() => {
       setShowToast(false);
-    }, 3000);
+      router.push('/tenders');
+    }, 2500);
   };
 
   if (loading) {
