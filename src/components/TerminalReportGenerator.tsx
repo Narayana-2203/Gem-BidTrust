@@ -77,29 +77,35 @@ CONFIDENTIAL - FOR AUTHORIZED OFFICERS ONLY
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 bg-black/60 z-[100] flex items-center justify-center backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-[#0f172a] rounded-xl shadow-2xl w-[650px] overflow-hidden flex flex-col border border-gray-700 font-mono text-sm text-left">
-            <div className="bg-black/50 text-gray-400 p-3 flex justify-between items-center border-b border-gray-800">
-               <div className="flex items-center gap-2">
-                 <Terminal size={14} /> root@bidtrust-secure-server:~
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.6)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(4px)', animation: 'fadeInUp 0.2s ease-out' }}>
+          <div style={{ background: '#0f172a', borderRadius: '12px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', width: '650px', overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '1px solid #334155', fontFamily: '"JetBrains Mono", monospace', textAlign: 'left' }}>
+            
+            {/* Terminal Header */}
+            <div style={{ background: '#020617', color: '#94a3b8', padding: '12px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #1e293b' }}>
+               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
+                 <Terminal size={14} /> root@bidtrust-ai-engine:~
                </div>
-               <button onClick={() => setIsOpen(false)} className="hover:text-white cursor-pointer"><X size={16}/></button>
+               <button onClick={() => setIsOpen(false)} style={{ background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer' }} onMouseOver={e => e.currentTarget.style.color = '#fff'} onMouseOut={e => e.currentTarget.style.color = '#94a3b8'}>
+                 <X size={16}/>
+               </button>
             </div>
             
-            <div className="p-6 h-[320px] overflow-y-auto text-green-400 flex flex-col gap-3 font-mono text-[13px] leading-relaxed">
+            {/* Terminal Body */}
+            <div style={{ padding: '24px', height: '320px', overflowY: 'auto', color: '#4ade80', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13px', lineHeight: 1.6 }}>
                {logs.map((log, index) => (
-                 <div key={index} className="animate-in fade-in slide-in-from-bottom-2 duration-300">
+                 <div key={index} style={{ animation: 'fadeInUp 0.3s ease-out' }}>
                    {log}
                  </div>
                ))}
                {!isDone && (
-                 <div className="animate-pulse text-green-400">_</div>
+                 <div style={{ animation: 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite', color: '#4ade80' }}>_</div>
                )}
             </div>
 
+            {/* Terminal Footer */}
             {isDone && (
-              <div className="bg-gray-900 p-4 border-t border-gray-800 flex justify-end animate-in fade-in duration-500">
-                <button className="bg-green-600 hover:bg-green-500 text-white px-5 py-2.5 rounded-md flex items-center gap-2 font-sans font-medium transition-colors cursor-pointer shadow-lg" onClick={handleDownload}>
+              <div style={{ background: '#020617', padding: '16px', borderTop: '1px solid #1e293b', display: 'flex', justifyContent: 'flex-end', animation: 'fadeInUp 0.5s ease-out' }}>
+                <button onClick={handleDownload} style={{ background: '#16a34a', color: 'white', padding: '10px 20px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: '14px', border: 'none', cursor: 'pointer', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)' }} onMouseOver={e => e.currentTarget.style.background = '#15803d'} onMouseOut={e => e.currentTarget.style.background = '#16a34a'}>
                   <Download size={16} /> Download Intelligence Log
                 </button>
               </div>

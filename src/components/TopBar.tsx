@@ -122,29 +122,45 @@ export default function TopBar({ breadcrumbs }: TopBarProps) {
           </button>
           
           {showLanguages && (
-            <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-xl z-50 py-2 animate-in slide-in-from-top-2">
-              <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100 mb-1">
+            <div style={{
+              position: 'absolute', right: 0, top: '40px', width: '220px',
+              background: '#ffffff', border: '1px solid var(--border-light)',
+              borderRadius: '12px', boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)',
+              zIndex: 100, padding: '8px 0', overflow: 'hidden',
+              animation: 'fadeInUp 0.2s ease-out'
+            }}>
+              <div style={{ padding: '8px 16px', fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '1px solid var(--border-light)', marginBottom: '4px' }}>
                 Select Language
               </div>
+              
               <button
-                className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 flex items-center justify-between transition-colors"
+                style={{ width: '100%', textAlign: 'left', padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: activeLang === 'en' ? 'var(--surface-100)' : 'transparent', border: 'none', cursor: 'pointer', transition: 'background 0.2s' }}
+                onMouseOver={(e) => e.currentTarget.style.background = 'var(--surface-100)'}
+                onMouseOut={(e) => e.currentTarget.style.background = activeLang === 'en' ? 'var(--surface-100)' : 'transparent'}
                 onClick={() => handleLanguageSelect('en')}
               >
-                <span className="font-medium text-gray-700">English</span>
-                {activeLang === 'en' && <Check size={14} className="text-blue-600" />}
+                <span style={{ fontSize: '13px', fontWeight: activeLang === 'en' ? 600 : 500, color: activeLang === 'en' ? 'var(--info)' : 'var(--text-primary)' }}>English</span>
+                {activeLang === 'en' && <Check size={14} color="var(--info)" />}
               </button>
+              
               {INDIAN_LANGUAGES.map((lang) => (
                 <button
                   key={lang.code}
-                  className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 flex items-center justify-between transition-colors"
+                  style={{ width: '100%', textAlign: 'left', padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: activeLang === lang.code ? 'var(--surface-100)' : 'transparent', border: 'none', cursor: 'pointer', transition: 'background 0.2s' }}
+                  onMouseOver={(e) => e.currentTarget.style.background = 'var(--surface-100)'}
+                  onMouseOut={(e) => e.currentTarget.style.background = activeLang === lang.code ? 'var(--surface-100)' : 'transparent'}
                   onClick={() => handleLanguageSelect(lang)}
                 >
-                  <span className="font-medium text-gray-700">{lang.name} <span className="text-gray-400 ml-1 font-normal">({lang.native})</span></span>
-                  {activeLang === lang.code && <Check size={14} className="text-blue-600" />}
+                  <div>
+                    <span style={{ fontSize: '13px', fontWeight: activeLang === lang.code ? 600 : 500, color: activeLang === lang.code ? 'var(--info)' : 'var(--text-primary)' }}>{lang.name}</span>
+                    <span style={{ fontSize: '12px', color: 'var(--text-muted)', marginLeft: '6px' }}>{lang.native}</span>
+                  </div>
+                  {activeLang === lang.code && <Check size={14} color="var(--info)" />}
                 </button>
               ))}
-              <div className="px-3 py-2 mt-1 border-t border-gray-100 bg-gray-50 text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
-                Powered by Bhashini AI
+              
+              <div style={{ padding: '10px 16px', marginTop: '4px', borderTop: '1px solid var(--border-light)', background: 'var(--surface-100)', fontSize: '11px', color: 'var(--text-muted)', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '4px' }}>
+                <Globe size={12} /> Powered by Bhashini AI
               </div>
             </div>
           )}
